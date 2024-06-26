@@ -95,8 +95,7 @@ select:active {
     min-width: 100px;
   }
 
-  input,
-  select {
+  input {
     font-size: 40px;
     width: 180px;
   }
@@ -114,8 +113,7 @@ select:active {
     min-width: 90px;
   }
 
-  input,
-  select {
+  input {
     font-size: 32px;
     width: 160px;
   }
@@ -133,8 +131,7 @@ select:active {
     min-width: 80px;
   }
 
-  input,
-  select {
+  input {
     font-size: 28px;
     width: 140px;
   }
@@ -157,8 +154,7 @@ select:active {
     min-width: 70px;
   }
 
-  input,
-  select {
+  input {
     font-size: 24px;
     width: 200px; /* Фиксированная ширина для input */
   }
@@ -181,8 +177,7 @@ select:active {
     min-width: 60px;
   }
 
-  input,
-  select {
+  input {
     font-size: 20px;
     width: 180px; /* Фиксированная ширина для input */
   }
