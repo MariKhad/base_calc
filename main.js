@@ -7,13 +7,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
   btnEqual.addEventListener("click", () => calc());
 
+  const numberRegex = /^-?\d*(\.\d+)?$/;
+
+  operandInput1.addEventListener("input", validateInput);
+  operandInput2.addEventListener("input", validateInput);
+
+  function validateInput(event) {
+    const value = event.target.value;
+    if (!numberRegex.test(value)) {
+      event.target.value = "";
+    }
+  }
+
   function calc() {
     const op1 = +operandInput1.value;
     const op2 = +operandInput2.value;
     const operator = operatorSelect.value;
 
     if (isNaN(op1) || isNaN(op2)) {
-      result.textContent = "Введите два числовых операнда";
+      result.textContent = "Введите два числа";
       return;
     }
 
