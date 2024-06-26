@@ -14,14 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //input type="nubmer" не работает в firefox
   function validateInput(event) {
+    const value = event.target.value;
     event.target.value = value.replace(/[^0-9.-]/g, "");
-    if (event.target.value.indexOf("-") > 0) {
-      event.target.value = value.replace(/-/g, "");
-    }
-    const parts = event.target.value.split(".");
-    if (parts.length > 2) {
-      event.target.value = parts.shift() + "." + parts.join("");
-    }
   }
 
   function calc() {

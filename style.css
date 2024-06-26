@@ -146,6 +146,11 @@ select:active {
 }
 
 @media (max-width: 576px) {
+  .calc-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
   .btn {
     font-size: 24px;
     height: 35px;
@@ -155,7 +160,7 @@ select:active {
   input,
   select {
     font-size: 24px;
-    width: 120px;
+    width: 200px; /* Фиксированная ширина для input */
   }
 
   .result {
@@ -165,6 +170,11 @@ select:active {
 }
 
 @media (max-width: 400px) {
+  .calc-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
   .btn {
     font-size: 20px;
     height: 30px;
@@ -174,7 +184,7 @@ select:active {
   input,
   select {
     font-size: 20px;
-    width: 100px;
+    width: 180px; /* Фиксированная ширина для input */
   }
 
   .result {
