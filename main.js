@@ -15,7 +15,13 @@ document.addEventListener("DOMContentLoaded", function () {
   function validateInput(event) {
     const value = event.target.value;
     event.target.value = value.replace(/[^0-9.-]/g, "");
-    console.log(event.target.value);
+    if (value.indexOf("-") > 0) {
+      value = value.replace(/-/g, "");
+    }
+    const parts = value.split(".");
+    if (parts.length > 2) {
+      value = parts.shift() + "." + parts.join("");
+    }
   }
 
   function calc() {
