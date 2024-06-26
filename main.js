@@ -9,14 +9,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const numberRegex = /^-?\d*(\.\d+)?$/;
 
-  operandInput1.addEventListener("input", validateInput);
+  operandInput1.addEventListener("t", validateInput);
   operandInput2.addEventListener("input", validateInput);
 
   function validateInput(event) {
     const value = event.target.value;
-    if (!numberRegex.test(value)) {
-      event.target.value = "";
-    }
+    event.target.value = value.replace(/[^0-9.-]/g, "");
   }
 
   function calc() {
