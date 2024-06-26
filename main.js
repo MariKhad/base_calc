@@ -12,6 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const op2 = +operandInput2.value;
     const operator = operatorSelect.value;
 
+    if (isNaN(op1) || isNaN(op2)) {
+      result.textContent = "Введите два числовых операнда";
+      return;
+    }
+
     const OPERATORS = {
       "+": op1 + op2,
       "-": op1 - op2,
