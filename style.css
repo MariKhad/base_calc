@@ -48,6 +48,7 @@ body {
 }
 
 input {
+  box-shadow: 5px 5px 5px black;
   width: 200px;
   border: 1px solid rgb(94, 94, 216);
   border-radius: 15px;
@@ -62,6 +63,7 @@ input:active {
 }
 
 select {
+  box-shadow: 5px 5px 5px black;
   font-size: 48px;
   border-radius: 15px;
   border: 1px solid rgb(94, 94, 216);
