@@ -95,9 +95,9 @@ document.addEventListener("DOMContentLoaded", function () {
       resetButtonAndBackground();
     }
   }
-});
 
-function resetButtonAndBackground() {
-  randomBgBtn.textContent = "Много раз";
-  document.body.style.backgroundColor = "#fff";
-}
+  function resetButtonAndBackground() {
+    randomBgBtn.textContent = "Много раз";
+    document.body.style.backgroundColor = "#fff";
+  }
+});
