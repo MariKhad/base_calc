@@ -3,6 +3,19 @@ body {
   font-family: sans-serif;
 }
 
+h2 {
+  margin-bottom: 0;
+}
+
+#change-bg {
+  background-color: rgb(110, 216, 94);
+  color: white;
+}
+
+#change-bg:focus {
+  border: 2px solid rgb(110, 216, 94);
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -11,6 +24,16 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+}
+
+.change-container {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: nowrap;
 }
 
 .calc-container {
@@ -36,6 +59,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  outline: none;
+  border: 2px solid transparent;
 }
 
 .btn:active {
@@ -43,7 +68,6 @@ body {
 }
 
 .btn:focus {
-  outline: none;
   border: 2px solid rgb(94, 94, 216);
 }
 
