@@ -3,34 +3,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const operandInput1 = document.querySelector(".input:first-of-type");
   const operandInput2 = document.querySelector(".input:last-of-type");
   const operatorSelect = document.querySelector(".select");
-  const result = document.querySelector(".result");
-  const changeBgBtn = document.querySelector("#change-bg");
-  const randomBgBtn = document.querySelector("#random-bg");
-  let isChangedOnce = false;
-  let isChanging = false;
-  const colors = [
-    "#01834F",
-    "#FF5733",
-    "#33FF57",
-    "#3357FF",
-    "#FF33A8",
-    "#A833FF",
-    "#FFD133",
-    "#33FFD1",
-    "#D133FF",
-    "#33A8FF",
-    "#FFFFFF",
-    "#00FFFF",
-    "#FF00FF",
-    "#1C1C1C",
-  ];
-
+  const resultList = document.querySelector(".result_list");
   btnEqual.addEventListener("click", calc);
-  changeBgBtn.addEventListener("click", onClickChangeBgColor);
-  randomBgBtn.addEventListener("click", onClickRandomBgColor);
 
   operandInput1.addEventListener("input", validateInput);
   operandInput2.addEventListener("input", validateInput);
+
+  resultList.addEventListener("click", function (event) {
+    if (event.target.classList.contains("btn_del")) {
+      event.target.parentElement.remove();
+    }
+  });
 
   //input type="nubmer" не работает в firefox
   function validateInput(event) {
@@ -44,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const operator = operatorSelect.value;
 
     if (isNaN(op1) || isNaN(op2)) {
-      result.textContent = "Введите два числа";
+      resultList.textContent = "Введите два числа";
       return;
     }
 
@@ -56,48 +39,25 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     if (operator in OPERATORS) {
-      result.textContent = OPERATORS[operator];
+      let resultNode = createResultNode(OPERATORS[operator]);
+      resultList.appendChild(resultNode);
+      DEL_BTNS = document.querySelectorAll(".btn_del");
       operandInput1.value = "";
       operandInput2.value = "";
     } else {
-      result.textContent = "Неподдерживаемая операция";
+      resultList.textContent = "Неподдерживаемая операция";
     }
   }
 
-  function onClickChangeBgColor() {
-    if (!isChangedOnce) {
-      bgcolor = changeBgBtn.dataset.color;
-      document.body.style.backgroundColor = bgcolor;
-      isChangedOnce = true;
-      changeBgBtn.textContent = "Обратно ";
-    } else {
-      document.body.style.backgroundColor = "#fff";
-      isChangedOnce = false;
-      changeBgBtn.textContent = "Один раз";
-    }
-  }
-
-  function onClickRandomBgColor() {
-    if (!isChanging) {
-      isChanging = true;
-      randomBgBtn.textContent = "Стоп";
-      const interval = setInterval(() => {
-        const randomColor = colors[Math.floor(Math.random() * colors.length)];
-        document.body.style.backgroundColor = randomColor;
-
-        if (!isChanging) {
-          clearInterval(interval);
-          resetButtonAndBackground();
-        }
-      }, 2000);
-    } else {
-      isChanging = false;
-      resetButtonAndBackground();
-    }
-  }
-
-  function resetButtonAndBackground() {
-    randomBgBtn.textContent = "Много раз";
-    document.body.style.backgroundColor = "#fff";
+  function createResultNode(result) {
+    let li = document.createElement("li");
+    li.classList.add("result_li");
+    let p = document.createElement("p");
+    p.textContent = result;
+    let button = document.createElement("button");
+    button.classList.add("btn_del");
+    li.append(p);
+    li.append(button);
+    return li;
   }
 });

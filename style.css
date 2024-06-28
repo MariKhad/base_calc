@@ -102,14 +102,43 @@ select:active {
   outline: none;
 }
 
-.result {
+.result_list {
   font-family: inherit;
   text-align: center;
-  font-size: 60px;
+  font-size: 20px;
   font-weight: 400;
   text-wrap: auto;
   min-height: 140px;
   color: rgb(94, 94, 216);
+}
+
+.result_li {
+  display: flex;
+  font-size: 20px;
+  justify-content: space-between;
+  position: relative;
+  border: 2px solid rgb(94, 94, 216);
+  border-radius: 15px;
+  width: 50vw;
+  margin: auto;
+  padding: 5px;
+  color: rgb(45, 45, 115);
+  margin-top: 5px;
+}
+
+.result_li p {
+  margin: 0px;
+}
+
+.btn_del {
+  background: center / contain no-repeat url("/close-icon.png");
+  right: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn_del:active {
+  transform: translate(2px 2px);
 }
 
 @media (max-width: 1200px) {
